@@ -1,5 +1,4 @@
-# https://en.wikipedia.org/wiki/Fibonacci_number
-import time
+import timeit
 
 
 def fibonacci_sequence(no_of_terms):
@@ -17,12 +16,12 @@ def fibonacci_sequence(no_of_terms):
 
 
 def main():
-    start_time = time.time()
+    start_time = timeit.default_timer()
     no_of_terms = int(input("Number of terms "))
     fibonacci_sequence(no_of_terms)
-    stop_time = time.time()
+    stop_time = timeit.default_timer()
     running_time = stop_time - start_time
-    print('\n******\n\nInput Size {}\nTime {}\n\n******'.format(no_of_terms, running_time))
+    print('\n******\n\nInput Size {}\nTime %.10f\n\n******'.format(no_of_terms) % running_time)
 
 
 if __name__ == "__main__":

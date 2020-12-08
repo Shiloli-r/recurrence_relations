@@ -1,4 +1,4 @@
-import time
+import timeit
 
 
 def fact(number):
@@ -9,11 +9,11 @@ def fact(number):
 
 
 def main():
-    start = time.time()
-    ans = fact(100)
+    start = timeit.default_timer()
+    ans = fact(10)
     print(ans)
-    running_time = time.time() - start
-    print("Running Time in Seconds: ", running_time)
+    running_time = timeit.default_timer() - start
+    print("Running Time in Seconds: %.10f" % running_time)
 
 
 if __name__ == '__main__':
