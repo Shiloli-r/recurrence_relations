@@ -1,4 +1,5 @@
 import timeit
+import matplotlib.pyplot as plt
 
 
 def fibonacci_sequence(no_of_terms):
@@ -16,12 +17,24 @@ def fibonacci_sequence(no_of_terms):
 
 
 def main():
-    start_time = timeit.default_timer()
-    no_of_terms = int(input("Number of terms "))
-    fibonacci_sequence(no_of_terms)
-    stop_time = timeit.default_timer()
-    running_time = stop_time - start_time
-    print('\n******\n\nInput Size {}\nTime %.10f\n\n******'.format(no_of_terms) % running_time)
+    time_taken = []
+    input_ = []
+    loop = int(input("Number of times to run the algorithm: "))
+    for i in range(loop):
+        no_of_terms = int(input("Number of terms: "))
+        start_time = timeit.default_timer()
+        fibonacci_sequence(no_of_terms)
+        stop_time = timeit.default_timer()
+        running_time = stop_time - start_time
+        time_taken.append(running_time)
+        input_.append(no_of_terms)
+        print('******\nInput Size {}\nTime %.10f\n******\n'.format(no_of_terms) % running_time)
+    print("Time: ", time_taken)
+    print("input: ", input_)
+    plt.plot(time_taken, input_)
+    plt.xlabel("Time Taken")
+    plt.ylabel("Input Size")
+    plt.show()
 
 
 if __name__ == "__main__":
